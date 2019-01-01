@@ -27,10 +27,6 @@ module.exports = {
       test: /\.(png|jpg)$/,
       include: path.join(__dirname, 'client'),
       loader: 'url-loader'
-    },
-    {
-      test: /\.json/,
-      loader: 'file-loader?name=[name].[ext]'
     }
     ]
   },
