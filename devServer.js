@@ -15,7 +15,7 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.use('/', express.static(path.join(__dirname, 'dist')))
 
-app.get(/[.]*manifest.json/,(req,res) => {
+app.get(/[.]*manifest\.json/,(req,res) => {
   res.sendFile(path.join(__dirname, 'manifest.json'))
 })
 
