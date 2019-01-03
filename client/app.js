@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 
 //register service worker like normal, built by webpack along with bundle
 if ('serviceWorker' in navigator){
