@@ -1,31 +1,31 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
 
-//register service worker like normal, built by webpack along with bundle
-if ('serviceWorker' in navigator){
-  navigator.serviceWorker
-    .register('./static/sw.js')
-      .then(() => console.log('[App] Service Worker Registered'))
-      .catch((e) => console.log('[App] SW Registration error\n',e))
-}
+import { Home } from "./modules/pages/Home"
 
-import idb from './utils/idb'
-import bluetooth from './utils/bluetooth'
-
-class App extends Component {
-
-  testBluetooth = () => {
-    if(!bluetooth) return alert("Bluetooth is not available!")
-    bluetooth.requestDevice({acceptAllDevices: true})
-  }
-
-  render(){
-      return <div>
-        <p>What hath God wrought?</p>
-        <button onClick={this.testBluetooth}>Test Bluetooth</button>
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Home />
       </div>
+    )
   }
 }
 
-render(<App/>,document.getElementById('root'))
+// import idb from './utils/idb'
+// import bluetooth from './utils/bluetooth'
+
+// class App extends Component {
+
+//   testBluetooth = () => {
+//     if(!bluetooth) return alert("Bluetooth is not available!")
+//     bluetooth.requestDevice({acceptAllDevices: true})
+//   }
+
+//   render(){
+//       return <div>
+//         <p>What hath God wrought?</p>
+//         <button onClick={this.testBluetooth}>Test Bluetooth</button>
+//       </div>
+//   }
+// }

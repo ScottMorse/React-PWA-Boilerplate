@@ -5,11 +5,14 @@ const workboxPlugin = require('workbox-webpack-plugin')
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
-  entry: './client/app',
+  entry: './client/index',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/'
+  },
+  node: {
+    fs: 'empty'
   },
   module: {
     rules: [
@@ -33,7 +36,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new workboxPlugin.InjectManifest({
-      swSrc: './client/sw.js',
+      swSrc: './sw.js',
       swDest: path.join(__dirname, 'dist/sw.js')
     })
   ]
